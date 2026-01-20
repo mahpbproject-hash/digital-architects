@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronRight, Play, Sparkles } from "lucide-react";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import heroBg from "@/assets/hero-bg.jpg";
-
+import robotHero from "@/assets/robot-hero.png";
 // Floating particle component
 const FloatingParticle = ({ delay, duration, x, y, size }: { delay: number; duration: number; x: number; y: number; size: number }) => (
   <motion.div
@@ -154,297 +154,233 @@ export const HeroSection = () => {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[100px]"
       />
 
-      {/* Content */}
+      {/* Content - Split Layout */}
       <motion.div className="container-wide relative z-10 py-20" style={{ opacity }}>
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Badge with Pulse Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md mb-8 relative"
-          >
-            {/* Animated Ring */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Side - Text Content */}
+          <div className="text-left">
+            {/* Badge with Pulse Animation */}
             <motion.div
-              className="absolute inset-0 rounded-full border border-primary/50"
-              animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md mb-8 relative"
             >
-              <Sparkles className="w-4 h-4 text-primary" />
-            </motion.div>
-            <span className="text-sm font-medium text-primary">
-              Trusted by 500+ companies worldwide
-            </span>
-          </motion.div>
-
-          {/* Main Heading with Typewriter */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="heading-xl text-foreground mb-6"
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Transform Your Business With{" "}
-            </motion.span>
-            <br />
-            <span className="gradient-text relative inline-block min-h-[1.2em]">
-              {text}
-              <motion.span
-                className="inline-block w-[3px] h-[0.9em] bg-primary ml-1 align-middle"
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
+              {/* Animated Ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full border border-primary/50"
+                animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
               />
-            </span>
-          </motion.h1>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <Sparkles className="w-4 h-4 text-primary" />
+              </motion.div>
+              <span className="text-sm font-medium text-primary">
+                Trusted by 500+ companies worldwide
+              </span>
+            </motion.div>
 
-          {/* Subheading with Stagger Animation */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="body-lg max-w-3xl mx-auto mb-12"
-          >
-            From idea to scale—we build premium websites, mobile apps, and AI-powered
-            automation that give you{" "}
-            <motion.span
-              className="text-primary font-semibold"
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 2, repeat: Infinity }}
+            {/* Main Heading with Typewriter */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="heading-xl text-foreground mb-6"
             >
-              unfair advantages
-            </motion.span>{" "}
-            in your market.
-          </motion.p>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                Transform Your Business With{" "}
+              </motion.span>
+              <br />
+              <span className="gradient-text relative inline-block min-h-[1.2em]">
+                {text}
+                <motion.span
+                  className="inline-block w-[3px] h-[0.9em] bg-primary ml-1 align-middle"
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                />
+              </span>
+            </motion.h1>
 
-          {/* CTA Buttons with Hover Effects */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link to="/contact">
+            {/* Subheading with Stagger Animation */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="body-lg max-w-xl mb-10"
+            >
+              From idea to scale—we build premium websites, mobile apps, and AI-powered
+              automation that give you{" "}
+              <motion.span
+                className="text-primary font-semibold"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                unfair advantages
+              </motion.span>{" "}
+              in your market.
+            </motion.p>
+
+            {/* CTA Buttons with Hover Effects */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-start gap-4"
+            >
+              <Link to="/contact">
+                <motion.button
+                  className="btn-primary group text-lg px-8 py-4 relative overflow-hidden"
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(99, 102, 241, 0.4)" }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Shine Effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+                    animate={{ translateX: ["100%", "-100%"] }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                  />
+                  <span className="relative z-10 flex items-center gap-2">
+                    Book Free Strategy Call
+                    <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </motion.button>
+              </Link>
               <motion.button
-                className="btn-primary group text-lg px-8 py-4 relative overflow-hidden"
-                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(99, 102, 241, 0.4)" }}
+                className="btn-secondary group text-lg px-8 py-4"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {/* Shine Effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-                  animate={{ translateX: ["100%", "-100%"] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                />
-                <span className="relative z-10 flex items-center gap-2">
-                  Book Free Strategy Call
-                  <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </span>
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <Play className="w-5 h-5" />
+                </motion.div>
+                See Our Work
               </motion.button>
-            </Link>
-            <motion.button
-              className="btn-secondary group text-lg px-8 py-4"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <Play className="w-5 h-5" />
-              </motion.div>
-              See Our Work
-            </motion.button>
-          </motion.div>
+            </motion.div>
 
-          {/* Trust Indicators with Animated Counters */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-16 pt-16 border-t border-white/10 relative"
-          >
-            {/* Animated Border */}
+            {/* Trust Indicators with Animated Counters */}
             <motion.div
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
-              animate={{ scaleX: [0, 1], opacity: [0, 1] }}
-              transition={{ duration: 1, delay: 0.8 }}
-            />
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { value: "500+", label: "Projects Delivered" },
-                { value: "98%", label: "Client Retention" },
-                { value: "50+", label: "Enterprise Clients" },
-                { value: "24/7", label: "Support Available" },
-              ].map((stat, index) => (
-                <AnimatedCounter
-                  key={stat.label}
-                  value={stat.value}
-                  label={stat.label}
-                  delay={0.9 + index * 0.15}
-                />
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Floating Dashboard Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 80, rotateX: 10 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 1.2, delay: 1, type: "spring", stiffness: 50 }}
-          className="mt-20 relative perspective-1000"
-        >
-          <div className="relative mx-auto max-w-5xl">
-            {/* Multi-Layer Glow Effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-b from-primary/30 via-accent/20 to-transparent blur-3xl"
-              animate={{ opacity: [0.5, 0.8, 0.5] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-2xl rounded-3xl"
-              animate={{ scale: [1, 1.02, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-
-            {/* Dashboard Card with 3D Hover */}
-            <motion.div
-              className="relative glass-card p-2 rounded-2xl overflow-hidden"
-              whileHover={{ scale: 1.02, rotateX: 2, rotateY: 2 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="mt-12 pt-8 border-t border-white/10 relative"
             >
               {/* Animated Border */}
               <motion.div
-                className="absolute inset-0 rounded-2xl border-2 border-transparent"
-                style={{
-                  background: "linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent) border-box",
-                }}
-                animate={{ opacity: [0.3, 0.7, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute top-0 left-0 w-3/4 h-px bg-gradient-to-r from-primary/50 via-primary/30 to-transparent"
+                animate={{ scaleX: [0, 1], opacity: [0, 1] }}
+                transition={{ duration: 1, delay: 0.8 }}
               />
               
-              <div className="bg-secondary/50 rounded-xl aspect-[16/9] flex items-center justify-center overflow-hidden">
-                {/* Simulated Dashboard UI */}
-                <div className="w-full h-full p-6 flex flex-col gap-4">
-                  {/* Top Bar */}
-                  <motion.div
-                    className="flex items-center justify-between"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.3 }}
-                  >
-                    <div className="flex items-center gap-4">
-                      <motion.div
-                        className="w-8 h-8 rounded-lg bg-primary/30"
-                        animate={{ rotate: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
-                      <div className="h-3 w-32 rounded bg-white/10" />
-                    </div>
-                    <div className="flex gap-2">
-                      <div className="h-8 w-20 rounded-lg bg-white/5" />
-                      <motion.div
-                        className="h-8 w-8 rounded-lg bg-primary/30"
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* Content Grid */}
-                  <div className="flex-1 grid grid-cols-3 gap-4 mt-4">
-                    <div className="col-span-2 space-y-4">
-                      {/* Stats Cards */}
-                      <div className="grid grid-cols-3 gap-4">
-                        {[1, 2, 3].map((i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            transition={{ delay: 1.4 + i * 0.15 }}
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            className="bg-card/50 rounded-xl p-4 border border-white/5 cursor-pointer"
-                          >
-                            <div className="h-2 w-12 rounded bg-muted-foreground/20 mb-2" />
-                            <motion.div
-                              className="h-6 w-16 rounded bg-primary/30"
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                            />
-                          </motion.div>
-                        ))}
-                      </div>
-                      {/* Chart Area */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.8 }}
-                        className="bg-card/50 rounded-xl p-4 border border-white/5 flex-1"
-                      >
-                        <div className="h-2 w-20 rounded bg-muted-foreground/20 mb-4" />
-                        <div className="flex items-end gap-2 h-32">
-                          {[40, 60, 45, 80, 55, 90, 70, 85].map((h, i) => (
-                            <motion.div
-                              key={i}
-                              initial={{ height: 0 }}
-                              animate={{ height: `${h}%` }}
-                              transition={{ delay: 2 + i * 0.08, duration: 0.6, ease: "backOut" }}
-                              whileHover={{ scaleY: 1.1 }}
-                              className="flex-1 rounded-t bg-gradient-to-t from-primary/40 to-primary/80 cursor-pointer"
-                            />
-                          ))}
-                        </div>
-                      </motion.div>
-                    </div>
-
-                    {/* Sidebar */}
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.6 }}
-                      className="space-y-4"
-                    >
-                      <div className="bg-card/50 rounded-xl p-4 border border-white/5">
-                        <div className="h-2 w-16 rounded bg-muted-foreground/20 mb-4" />
-                        <div className="space-y-3">
-                          {[1, 2, 3, 4].map((i) => (
-                            <motion.div
-                              key={i}
-                              initial={{ opacity: 0, x: 10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 1.8 + i * 0.1 }}
-                              className="flex items-center gap-3"
-                            >
-                              <motion.div
-                                className="w-8 h-8 rounded-full bg-accent/20"
-                                animate={{ scale: [1, 1.1, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                              />
-                              <div className="flex-1">
-                                <div className="h-2 w-full rounded bg-white/10 mb-1" />
-                                <div className="h-2 w-2/3 rounded bg-white/5" />
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                {[
+                  { value: "500+", label: "Projects Delivered" },
+                  { value: "98%", label: "Client Retention" },
+                  { value: "50+", label: "Enterprise Clients" },
+                  { value: "24/7", label: "Support Available" },
+                ].map((stat, index) => (
+                  <AnimatedCounter
+                    key={stat.label}
+                    value={stat.value}
+                    label={stat.label}
+                    delay={0.9 + index * 0.15}
+                  />
+                ))}
               </div>
             </motion.div>
           </div>
-        </motion.div>
+
+          {/* Right Side - Robot Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 100, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 80 }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            {/* Glow Effect Behind Robot */}
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-[400px] h-[400px] rounded-full bg-primary/30 blur-[80px]" />
+            </motion.div>
+            
+            {/* Secondary Glow */}
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              animate={{
+                scale: [1.1, 1, 1.1],
+                opacity: [0.2, 0.4, 0.2],
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <div className="w-[350px] h-[350px] rounded-full bg-accent/25 blur-[60px]" />
+            </motion.div>
+
+            {/* Robot Image with Floating Animation */}
+            <motion.div
+              animate={{
+                y: [0, -15, 0],
+                rotate: [0, 2, 0, -2, 0],
+              }}
+              transition={{
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+              }}
+              className="relative z-10"
+            >
+              {/* Reflection/Shadow underneath */}
+              <motion.div
+                className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-primary/20 blur-2xl rounded-full"
+                animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.8, 1, 0.8] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              <motion.img
+                src={robotHero}
+                alt="Friendly AI Robot using mobile app"
+                className="w-full max-w-md lg:max-w-lg xl:max-w-xl drop-shadow-2xl"
+                whileHover={{ scale: 1.05, rotate: 3 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
+
+              {/* Sparkle Effects around robot */}
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-primary rounded-full"
+                  style={{
+                    top: `${20 + i * 15}%`,
+                    left: i % 2 === 0 ? `${5 + i * 3}%` : `${85 - i * 3}%`,
+                  }}
+                  animate={{
+                    scale: [0, 1, 0],
+                    opacity: [0, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    delay: i * 0.4,
+                    repeat: Infinity,
+                    repeatDelay: 1,
+                  }}
+                />
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Scroll Indicator */}
